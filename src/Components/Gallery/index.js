@@ -6,25 +6,30 @@ import Categories from '../../data/categories.json';
 function Gallery() {
     const [data, setData] = useState([])
     const [categories, setCategories] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState(null)
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [corsError, setError] = useState(null);
 
     useEffect(() => {
-        getData();
-    },
-         [selectedCategory]
-    );
+        if(corsError === null) {
+         getData();
+        }
+    }, [selectedCategory]);
 
-    console.log(Products);
+    useEffect(() => {
+            getDataFromJson();
+    },[selectedCategory])
+
 
     const getData = () => {
-        setCategories(Categories);
-        // fetch('https://fakestoreapi.com/products/categories')
-        //     .then(res=>res.json())
-        //     .then(json=>{
-        //         setCategories(json);
-        //     }).catch( err => {
-        //         console.error(err.message);
-        // })
+        fetch('https://fakestoreapi.com/products/categories')
+            .then(res=>res.json())
+            .then(json=>{
+                setCategories(json);
+            }).catch( err => {
+            setCategories(Categories);
+            setError(err);
+            console.error(err.message);
+        })
 
         let productUrl = "https://fakestoreapi.com/products"
 
@@ -32,24 +37,27 @@ function Gallery() {
             productUrl += '/category/' + selectedCategory;
         }
 
-        setData(Products);
-        // fetch(productUrl)
-        //     .then(res => res.json())
-        //     .then(json => {
-        //         console.log(json);
-        //         setData(json);
-        //     }).catch( err => {
-        //     console.error(err.message);
-        // })
+        fetch(productUrl)
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+                setData(json);
+            }).catch( err => {
+                setData(Products);
+                setError(err);
+                console.error(err.message);
+        })
+    }
 
-        if (selectedCategory != null) {
+    const getDataFromJson = () => {
+        if (corsError !== null && selectedCategory != null) {
             const filteredArray = Products.filter(item => item.category === selectedCategory);
             setData(filteredArray);
         }
     }
 
     return (
-                <div className="row">
+                <div className="row d-flex justify-content-start" style={{backgroundColor:'#E5E5E5'}}>
                     <div className="col-12 d-flex flex-row justify-content-evenly align-items-center my-5">
                         <button type="button" className="btn text-capitalize gallery-buttons" style={ selectedCategory === null ? {color: "#F86338"} : {}} onClick={() => {
                             setSelectedCategory(null);
