@@ -1,0 +1,26 @@
+.brand-header-logo{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 94px !important;
+    margin-top: 25px;
+}
+
+.header-span-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 120%;
+    letter-spacing: 0.005em;
+    color: #11142D;
+    padding-left: 10px;
+}
+
+.header-content {
+  margin-right: 104px;
+    text-align: right;
+}
+
+.header-content a {
+    text-decoration: none;
+}
