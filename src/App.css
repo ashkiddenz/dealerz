@@ -89,3 +89,11 @@
 .arrowButton {
   margin-top:32px;
 }
+
+.myNavLinks{
+  margin-right: 16px;
+}
+
+.mySearchBar {
+  background-color: rgb(229, 229, 229);
+}
