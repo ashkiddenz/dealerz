@@ -114,6 +114,23 @@
   height: 56px;
 }
 
+.email-form {
+  width: 816px;
+  height: 64px;
+  margin-top: 40px;
+}
+
+.mySearchBar input::placeholder {
+  padding: 22px 0 22px 32px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0.005em;
+  color: #9A9AB0;
+}
+
 .find-out-more-button {
   width: 156px;
   height: 56px;
@@ -171,4 +188,59 @@
 
 .circle-group {
   padding: 88px 106px 0 0;
+}
+
+.form-container {
+  background-color: #E5E5E5;
+}
+
+.form-box {
+  margin-left: 104px;
+  margin-right: 106px;
+  background-color: white;
+  text-align: center;
+}
+
+.form-header{
+  padding-top: 94px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: 0.005em;
+  margin-bottom: 0;
+}
+
+.form-text-main {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: 0.005em;
+  color: #9A9AB0;
+  padding-top: 32px;
+}
+
+.form-text-main p {
+  margin-bottom: 0;
+}
+
+#square {
+  width: 48px;
+  height: 48px;
+  background-color: #F86338;
+  border-radius: 8px;
+}
+
+#circle-inside-square {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
 }

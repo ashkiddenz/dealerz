@@ -1,6 +1,7 @@
 import MainLayout from "../layouts";
 import Gallery from "../Components/Gallery"
 import Hero from "../Components/Hero"
+import Form from "../Components/Form";
 
 function Home() {
     return (
@@ -10,6 +11,7 @@ function Home() {
                 <h2 className='header-2'>Our Premium Collection</h2>
             </div>
             <Gallery/>
+            <Form/>
         </MainLayout>
     );
 }

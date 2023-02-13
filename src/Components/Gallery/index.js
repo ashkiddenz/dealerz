@@ -76,6 +76,7 @@ function Gallery() {
                                 } else if(findOutMore !== 0) {
                                     return <Product item = {item} key={item.id}/>
                                 }
+                                return null;
                             })}
                     </div>
                     <div className="pt-5" style={{paddingBottom:160}}>
