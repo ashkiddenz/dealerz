@@ -8,6 +8,7 @@ function Gallery() {
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [corsError, setError] = useState(null);
+    const [findOutMore , setFindOutMore ] = useState(0);
 
     useEffect(() => {
         if(corsError === null) {
@@ -57,8 +58,8 @@ function Gallery() {
     }
 
     return (
-                <div className="row d-flex justify-content-start" style={{backgroundColor:'#E5E5E5'}}>
-                    <div className="col-12 d-flex flex-row justify-content-evenly align-items-center my-5">
+                <div className="row" style={{backgroundColor:'#E5E5E5'}}>
+                    <div className="col-12 d-flex flex-row justify-content-evenly align-items-center my-4">
                         <button type="button" className="btn text-capitalize gallery-buttons" style={ selectedCategory === null ? {color: "#F86338"} : {}} onClick={() => {
                             setSelectedCategory(null);
                         }}>All Products</button>
@@ -68,9 +69,20 @@ function Gallery() {
                             }}>{item}</button>
                         })}
                     </div>
-                    {data.length > 0 && data.map( item => {
-                        return <Product item = {item} key={item.id}/>
-                    })}
+                    <div className="row d-flex justify-content-start" style={{marginLeft:104}} width="80%">
+                            {data.length > 0 && data.map( (item,index) => {
+                                if(findOutMore === 0 && index < 6) {
+                                    return <Product item = {item} key={item.id}/>
+                                } else if(findOutMore !== 0) {
+                                    return <Product item = {item} key={item.id}/>
+                                }
+                            })}
+                    </div>
+                    <div className="pt-5" style={{paddingBottom:160}}>
+                        { findOutMore === 0 ? <button className="btn find-out-more-button" onClick={() => {
+                            setFindOutMore(1);
+                        }}>Find out More</button> : null}
+                    </div>
                 </div>
     );
 }
